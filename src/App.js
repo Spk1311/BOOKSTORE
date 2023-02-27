@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import {useState} from "react";
 import './App.css';
+import About from "./Component/About";
+import Home from "./Page/Home";
 
 function App() {
+  const [page,setPage]=useState(0);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="App">
+    <button className="App-link" onClick={()=>page===0?setPage(1):setPage(0)}>Click me</button>
+
+      {page===0?<About/>:<Home/>}
+      
+     </div>
+   );
 }
 
 export default App;
